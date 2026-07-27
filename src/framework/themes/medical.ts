@@ -23,7 +23,7 @@ export const medicalTheme: ThemeTokens = {
     body: "Source Sans 3",
   },
   radius: "0.5rem",
-  heroStyle: "light",
+  heroStyle: "gradient",
   navStyle: "solid",
   primaryText: "white",
   primaryGradient: "linear-gradient(135deg, #0369A1 0%, #0EA5E9 100%)",

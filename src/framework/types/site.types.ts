@@ -125,6 +125,7 @@ export interface StatItem {
 }
 
 export interface TestimonialItem {
+  id?: string;
   name: string;
   role?: string;
   avatar?: string;
@@ -372,6 +373,19 @@ export interface SiteConfig {
 
   /** Business-specific attributes for JSON-LD (e.g. aggregateRating) */
   schemaExtras?: Record<string, unknown>;
+
+  // ── Global Plugins & Widgets ──────────────────────────────────────
+  plugins?: string[];
+  
+  announcement?: {
+    isActive: boolean;
+    text: string;
+    href?: string;
+    backgroundColor?: string;
+    textColor?: string;
+  };
+  
+  showWatermark?: boolean;
 
   // ── Google Analytics / Tracking (optional) ───────────────────────
   googleAnalyticsId?: string;

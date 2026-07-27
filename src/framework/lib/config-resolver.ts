@@ -57,6 +57,9 @@ export interface ResolvedConfig {
 
   schemaType: string;
   schemaExtras: Record<string, unknown>;
+  plugins: string[];
+  announcement: SiteConfig["announcement"] | null;
+  showWatermark: boolean;
   googleAnalyticsId: string;
 }
 
@@ -150,6 +153,9 @@ export function resolveConfig(
 
     schemaType: merged.schemaType ?? "LocalBusiness",
     schemaExtras: merged.schemaExtras ?? {},
+    plugins: merged.plugins ?? [],
+    announcement: merged.announcement ?? null,
+    showWatermark: merged.showWatermark ?? true,
     googleAnalyticsId: merged.googleAnalyticsId ?? "",
   };
 }

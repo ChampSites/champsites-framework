@@ -5,11 +5,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 // ─── Direct Config Import (Framework Architecture Phase 1) ─────────────────
-import { siteConfig } from "@clients/demo/site.config";
+import { siteConfig } from "@clients/dental-wellness/site.config";
 import { resolveConfig } from "@fw/lib/config-resolver";
 import { generateSiteMetadata } from "@fw/lib/metadata";
 import { generateJsonLd, serializeJsonLd } from "@fw/lib/jsonld";
 import { themeToCSS } from "@fw/themes";
+import { cn } from "../framework/utils/cn";
+import { PluginRenderer } from "@fw/plugins/PluginRenderer";
+import { AnnouncementBanner } from "@fw/plugins/AnnouncementBanner";
 
 const config = resolveConfig(siteConfig);
 
@@ -74,8 +77,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </>
         )}
       </head>
-      <body className="min-h-screen antialiased" suppressHydrationWarning>
+      <body className={cn('min-h-screen', 'antialiased')} suppressHydrationWarning>
+        {config.announcement?.isActive && (
+          <AnnouncementBanner {...config.announcement} />
+        )}
         {children}
+        <PluginRenderer plugins={config.plugins} configContext={{ whatsapp: config.social.whatsapp }} />
       </body>
     </html>
   );

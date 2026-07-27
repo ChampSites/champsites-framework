@@ -2,7 +2,6 @@
 /* Framework design system — theme tokens + base styles */
 
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 

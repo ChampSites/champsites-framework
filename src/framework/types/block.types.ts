@@ -146,4 +146,5 @@ export interface FooterProps {
   ctaPrimary: CtaButton;
   theme: ThemeTokens;
   schemaType?: string;
+  showWatermark?: boolean;
 }

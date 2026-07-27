@@ -52,6 +52,7 @@ export function Footer({
   footerLinks,
   ctaPrimary,
   theme,
+  showWatermark = true,
 }: FooterProps) {
   const year = new Date().getFullYear();
 
@@ -210,9 +211,11 @@ export function Footer({
           <p className="text-white/30 text-xs text-center">
             © {year} {businessName}. All rights reserved.
           </p>
-          <p className="text-white/20 text-xs">
-            Powered by LocalBiz Framework
-          </p>
+          {showWatermark && (
+            <p className="text-white/20 text-xs">
+              Powered by ChampSites Framework
+            </p>
+          )}
         </div>
       </div>
     </footer>

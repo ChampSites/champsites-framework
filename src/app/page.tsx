@@ -2,7 +2,7 @@
 // Dynamic Page Assembler using BlockRegistry.
 // Zero hardcoded components or business logic.
 
-import { siteConfig } from "@clients/demo/site.config";
+import { siteConfig } from "@clients/dental-wellness/site.config";
 import { resolveConfig } from "@fw/lib/config-resolver";
 import { BLOCK_REGISTRY } from "@fw/blocks/registry";
 
@@ -90,6 +90,7 @@ export default function HomePage() {
         footerLinks={config.footerLinks}
         ctaPrimary={config.ctaPrimary}
         theme={theme}
+        showWatermark={config.showWatermark}
         schemaType={config.schemaType}
       />
     </>
