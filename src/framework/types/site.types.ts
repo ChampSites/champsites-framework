@@ -44,6 +44,8 @@ export interface HeroConfig {
   ctaSecondary?: CtaButton;
   /** Image shown on the right / as background for image-style heroes */
   image?: ImageSource;
+  /** Full screen background image */
+  backgroundImage?: ImageSource;
   /** Quick stat pills shown below the CTAs */
   quickStats?: { label: string; value: string }[];
   /** Enable video background (URL to mp4) */
@@ -53,10 +55,11 @@ export interface HeroConfig {
 export interface AboutConfig {
   headline: string;
   subheadline?: string;
-  body: string;
+  body?: string;
   image?: ImageSource;
   highlights?: { icon: string; title: string; desc: string }[];
   cta?: CtaButton;
+  content?: string;
 }
 
 export interface ServiceItem {

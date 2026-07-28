@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AnnouncementBanner {...config.announcement} />
         )}
         {children}
-        <PluginRenderer plugins={config.plugins} configContext={{ whatsapp: config.social.whatsapp }} />
+        <PluginRenderer plugins={config.plugins} configContext={{ whatsapp: config.social.whatsapp, businessName: config.name }} />
       </body>
     </html>
   );

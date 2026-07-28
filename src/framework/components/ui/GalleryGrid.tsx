@@ -44,22 +44,38 @@ export function GalleryGrid({ items, categories }: GalleryGridProps) {
         </div>
       )}
 
-      {/* Grid */}
+      {/* Bento Grid */}
       <motion.div
         layout
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+        className="grid grid-cols-1 md:grid-cols-4 auto-rows-[250px] gap-4"
       >
         <AnimatePresence mode="popLayout">
-          {filtered.map((item, i) => (
-            <motion.div
-              key={`${item.src}-${i}`}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.25 }}
-              className="group relative aspect-square rounded-[var(--fw-radius)] overflow-hidden bg-[var(--fw-surface)]"
-            >
+          {filtered.map((item, i) => {
+            // Bento grid logic: create varied block sizes
+            const bentoClasses = [
+              "md:col-span-2 md:row-span-2", // Large square/tall block
+              "md:col-span-1 md:row-span-1", // Standard
+              "md:col-span-1 md:row-span-1", // Standard
+              "md:col-span-2 md:row-span-1", // Wide block
+              "md:col-span-1 md:row-span-1", // Standard
+              "md:col-span-1 md:row-span-1", // Standard
+            ];
+            const spanClass = bentoClasses[i % bentoClasses.length];
+
+            return (
+              <motion.div
+                key={`${item.src}-${i}`}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+                className={cn(
+                  "group relative rounded-[var(--fw-radius)] overflow-hidden bg-[var(--fw-surface)]",
+                  "min-h-[250px]", // fallback for mobile
+                  spanClass
+                )}
+              >
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -69,23 +85,25 @@ export function GalleryGrid({ items, categories }: GalleryGridProps) {
                 loading="lazy"
               />
 
-              {/* Caption overlay */}
-              {item.caption && (
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                  <p className="text-white text-xs font-medium">{item.caption}</p>
+              {/* Permanent Caption overlay (Rudra style) */}
+              {(item.caption || item.alt) && (
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5 flex flex-col justify-end">
+                  {item.category && (
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-white/80 mb-1">
+                      {item.category}
+                    </span>
+                  )}
+                  <p className="text-white text-lg font-bold font-heading drop-shadow-md">
+                    {item.caption || item.alt}
+                  </p>
                 </div>
               )}
 
-              {/* Category badge */}
-              {item.category && (
-                <div className="absolute top-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[var(--fw-accent)] text-white">
-                    {item.category}
-                  </span>
-                </div>
-              )}
+              {/* Top-left category badge (Optional, removed to favor the bottom text) */}
+
             </motion.div>
-          ))}
+            );
+          })}
         </AnimatePresence>
       </motion.div>
     </div>

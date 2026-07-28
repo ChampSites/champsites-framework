@@ -53,7 +53,6 @@ export default function HomePage() {
           // e.g., <StatsBlock stats={config} />, <TestimonialsBlock testimonials={config} />
           const propMap: Record<string, any> = {
             ctx,
-            key: sectionKey,
           };
 
           if (sectionKey === "stats") propMap.stats = blockConfig;
@@ -70,9 +69,10 @@ export default function HomePage() {
             propMap.email = config.email;
             propMap.hours = config.hours;
             propMap.social = config.social;
+            propMap.mapsEmbed = config.mapsEmbed;
           }
 
-          return <BlockComponent {...propMap} />;
+          return <BlockComponent key={sectionKey} {...propMap} />;
         })}
       </main>
 

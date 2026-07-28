@@ -3,6 +3,7 @@
 // footer link groups. Never reads from config directly — props only.
 
 import { MapPin, Phone, Clock, Mail, ArrowRight } from "lucide-react";
+import { DemoSubFooter } from "./DemoSubFooter";
 import { buildTelHref, buildMailHref, buildWhatsAppUrl } from "@fw/utils/format";
 import { cn } from "@fw/utils/cn";
 import type { FooterProps } from "@fw/types";
@@ -59,151 +60,119 @@ export function Footer({
   return (
     <footer id="footer" className="bg-[var(--fw-primary)] text-white" role="contentinfo">
 
-      {/* Map + Contact Row */}
-      {(mapsEmbed || phone || email || hours) && (
-        <div className="border-b border-white/10">
-          <div className="max-w-[1200px] mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Map */}
-            {mapsEmbed && (
-              <div className="rounded-2xl overflow-hidden h-64 lg:h-80 bg-[var(--fw-primary-light)] relative">
-                <iframe
-                  src={mapsEmbed}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-                  title={`${businessName} location map`}
-                />
+      {/* Main Footer Content */}
+      <div className="max-w-[1200px] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        {/* Contact Info (Takes up 2 columns on large screens) */}
+        <div className="lg:col-span-2 flex flex-col gap-8">
+          <div>
+            <div className="flex items-center gap-3 mb-3">
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg font-heading"
+                style={{ background: "var(--fw-accent-gradient)" }}
+                aria-hidden="true"
+              >
+                {businessName[0]}
+              </div>
+              <h3 className="font-heading text-2xl font-bold">{businessName}</h3>
+            </div>
+            {(tagline || footerTagline) && (
+              <p className="text-white/60 text-sm leading-relaxed max-w-sm">
+                {tagline || footerTagline}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-4">
+            {address && (
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-[var(--fw-accent)] mt-0.5 shrink-0" aria-hidden="true" />
+                <p className="text-white/90 text-sm leading-relaxed">{address}</p>
               </div>
             )}
 
-            {/* Contact Info */}
-            <div className="flex flex-col justify-center gap-6">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-xs font-heading"
-                    style={{ background: "var(--fw-accent-gradient)" }}
-                    aria-hidden="true"
-                  >
-                    {businessName[0]}
-                  </div>
-                  <h3 className="font-heading text-xl font-bold">{businessName}</h3>
-                </div>
-                {footerTagline && (
-                  <p className="text-white/50 text-sm">{footerTagline}</p>
-                )}
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[var(--fw-accent)] mt-0.5 shrink-0" aria-hidden="true" />
-                  <p className="text-white/90 text-sm leading-relaxed">{address}</p>
-                </div>
-
-                {phone && (
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
-                    <div className="flex flex-col gap-0.5">
-                      <a
-                        href={buildTelHref(phone)}
-                        className="text-white/90 text-sm hover:text-[var(--fw-accent)] transition-colors"
-                      >
-                        {phone}
-                      </a>
-                      {phoneAlt && (
-                        <a
-                          href={buildTelHref(phoneAlt)}
-                          className="text-white/60 text-xs hover:text-[var(--fw-accent)] transition-colors"
-                        >
-                          {phoneAlt}
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                )}
-
-                {email && (
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
-                    <a
-                      href={buildMailHref(email)}
-                      className="text-white/90 text-sm hover:text-[var(--fw-accent)] transition-colors"
-                    >
-                      {email}
+            {phone && (
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
+                <div className="flex flex-col gap-0.5">
+                  <a href={buildTelHref(phone)} className="text-white/90 text-sm hover:text-[var(--fw-accent)] transition-colors">
+                    {phone}
+                  </a>
+                  {phoneAlt && (
+                    <a href={buildTelHref(phoneAlt)} className="text-white/60 text-xs hover:text-[var(--fw-accent)] transition-colors">
+                      {phoneAlt}
                     </a>
-                  </div>
-                )}
-
-                {hours && (
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
-                    <p className="text-white/90 text-sm">{hours}</p>
-                  </div>
-                )}
-              </div>
-
-              {/* Social Icons */}
-              {social && (
-                <div className="flex items-center gap-3">
-                  {social.instagram && (
-                    <SocialIcon href={social.instagram} label="Instagram">
-                      <InstagramSvg />
-                    </SocialIcon>
-                  )}
-                  {social.whatsapp && (
-                    <SocialIcon
-                      href={buildWhatsAppUrl(social.whatsapp, `Hi! I'd like to know more about ${businessName}.`)}
-                      label="WhatsApp"
-                    >
-                      <WhatsAppSvg />
-                    </SocialIcon>
                   )}
                 </div>
+              </div>
+            )}
+
+            {email && (
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
+                <a href={buildMailHref(email)} className="text-white/90 text-sm hover:text-[var(--fw-accent)] transition-colors">
+                  {email}
+                </a>
+              </div>
+            )}
+
+            {hours && (
+              <div className="flex items-center gap-3">
+                <Clock className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
+                <p className="text-white/90 text-sm">{hours}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Social Icons */}
+          {social && (
+            <div className="flex items-center gap-3 pt-2">
+              {social.instagram && (
+                <SocialIcon href={social.instagram} label="Instagram">
+                  <InstagramSvg />
+                </SocialIcon>
+              )}
+              {social.whatsapp && (
+                <SocialIcon
+                  href={buildWhatsAppUrl(social.whatsapp, `Hi! I'd like to know more about ${businessName}.`)}
+                  label="WhatsApp"
+                >
+                  <WhatsAppSvg />
+                </SocialIcon>
               )}
             </div>
-          </div>
+          )}
         </div>
-      )}
 
-      {/* Footer Links Grid */}
-      {footerLinks && footerLinks.length > 0 && (
-        <div className={cn("max-w-[1200px] mx-auto px-6 py-12 grid gap-8", footerLinks.length === 3 ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2 md:grid-cols-3")}>
-          {/* Brand tagline column */}
-          <div className="col-span-2 md:col-span-1">
-            {tagline && (
-              <p className="text-white/40 text-sm leading-relaxed">{tagline}</p>
-            )}
-          </div>
-
-          {footerLinks.map((group) => (
-            <div key={group.title}>
-              <h4 className="text-white font-semibold text-sm mb-4 tracking-wide uppercase">
-                {group.title}
-              </h4>
-              <ul className="space-y-2.5">
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-white/50 text-sm hover:text-white transition-colors duration-200 flex items-center gap-1 group"
-                    >
-                      <ArrowRight
-                        className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-1 transition-all duration-200"
-                        aria-hidden="true"
-                      />
+        {/* Footer Links Grid */}
+        {footerLinks?.map((group) => (
+          <div key={group.title}>
+            <h4 className="text-white font-semibold text-sm mb-6 tracking-wide uppercase">
+              {group.title}
+            </h4>
+            <ul className="space-y-4">
+              {group.links.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-white/60 text-sm hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <ArrowRight
+                      className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[var(--fw-accent)]"
+                      aria-hidden="true"
+                    />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
                       {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      )}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Demo Concept Sub-Footer */}
+      <DemoSubFooter businessName={businessName} backgroundColor="rgba(0,0,0,0.3)" />
 
       {/* Bottom bar */}
       <div className="border-t border-white/5 bg-black/20">

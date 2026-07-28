@@ -2,11 +2,11 @@
 // Generates robots.txt from the business config.
 
 import type { MetadataRoute } from "next";
-import { SiteConfig } from "@fw/config/business.config";
+import { siteConfig } from "@clients/dental-wellness/site.config";
 import { resolveConfig } from "@fw/lib/config-resolver";
 
 export default function robots(): MetadataRoute.Robots {
-  const config = resolveConfig(SiteConfig);
+  const config = resolveConfig(siteConfig);
   const baseUrl = config.seo.siteUrl || "https://example.com";
 
   return {

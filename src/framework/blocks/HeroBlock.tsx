@@ -5,6 +5,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { cn } from "@fw/utils/cn";
+import Image from "next/image";
 import { getIcon } from "@fw/constants/icons";
 import { heroReveal, fadeUp, staggerContainer, viewportOnce } from "@fw/constants/animations";
 import type { HeroBlockProps } from "@fw/types";
@@ -21,16 +22,30 @@ export function HeroBlock({ config, ctx }: HeroBlockProps) {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ backgroundColor: theme.colors.primary }}
     >
-      {/* Background gradient */}
+      {/* Background Image */}
+      {config.backgroundImage && (
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={config.backgroundImage.src}
+            alt={config.backgroundImage.alt || "Hero Background"}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+      )}
+
+      {/* Background gradient (or image fallback overlay) */}
       <div
-        className="absolute inset-0"
+        className={cn("absolute inset-0 z-10 mix-blend-multiply", config.backgroundImage ? "opacity-80" : "opacity-100")}
         style={{ background: theme.primaryGradient }}
         aria-hidden="true"
       />
 
       {/* Subtle grid overlay */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 z-10 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
           backgroundSize: "60px 60px",
@@ -40,18 +55,18 @@ export function HeroBlock({ config, ctx }: HeroBlockProps) {
 
       {/* Accent glow blobs */}
       <div
-        className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none"
+        className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none z-10"
         style={{ backgroundColor: `${theme.colors.accent}18` }}
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none"
+        className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none z-10"
         style={{ backgroundColor: `${theme.colors.accent}0d` }}
         aria-hidden="true"
       />
 
       {/* Content */}
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10 pt-24 pb-16">
+      <div className="max-w-[1200px] mx-auto px-6 relative z-20 pt-24 pb-16">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -164,7 +179,7 @@ export function HeroBlock({ config, ctx }: HeroBlockProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
         aria-hidden="true"
       >
         <span className="text-white/50 text-xs tracking-widest uppercase">Scroll</span>

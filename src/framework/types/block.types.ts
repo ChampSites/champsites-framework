@@ -101,6 +101,7 @@ export interface ContactBlockProps {
   email?: string;
   hours?: string;
   social?: SocialLinks;
+  mapsEmbed?: string;
 }
 
 export interface MapBlockProps {
