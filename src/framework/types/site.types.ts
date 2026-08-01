@@ -91,6 +91,7 @@ export interface FeatureItem {
   title: string;
   desc: string;
   color?: string;
+  image?: ImageSource;
 }
 
 export interface FeaturesConfig {
@@ -348,7 +349,7 @@ export interface NavLink {
 
 export interface FooterLinkGroup {
   title: string;
-  links: { label: string; href: string }[];
+  links: { label: string; href: string, target?: "_blank" }[];
 }
 
 // ─── Master Config ────────────────────────────────────────────────────────────

@@ -4,6 +4,7 @@ import { siteConfig as shriRamConfig } from "@clients/shri-ram/site.config";
 import { siteConfig as dentalWellnessConfig } from "@clients/dental-wellness/site.config";
 import { siteConfig as demoConfig } from "@clients/demo/site.config";
 import { siteConfig as machliwalaConfig } from "@clients/machliwala/site.config";
+import { siteConfig as sundramRollsConfig } from "@clients/sundram-rolls/site.config";
 
 const clientId = process.env.NEXT_PUBLIC_CLIENT;
 
@@ -15,6 +16,8 @@ function getActiveConfig(id: string | undefined) {
       return shriRamConfig;
     case 'machliwala':
       return machliwalaConfig;
+    case 'sundram-rolls':
+      return sundramRollsConfig
     default:
       return demoConfig;
   }

@@ -7,6 +7,7 @@ import { DemoSubFooter } from "./DemoSubFooter";
 import { buildTelHref, buildMailHref, buildWhatsAppUrl } from "@fw/utils/format";
 import { cn } from "@fw/utils/cn";
 import type { FooterProps } from "@fw/types";
+import Link from "next/link";
 
 function SocialIcon({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
   return (
@@ -152,9 +153,10 @@ export function Footer({
             <ul className="space-y-4">
               {group.links.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-[var(--fw-muted)] text-sm hover:text-[var(--fw-accent)] transition-colors duration-200 flex items-center gap-2 group"
+                    target={link.target}
                   >
                     <ArrowRight
                       className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[var(--fw-accent)]"
@@ -163,7 +165,7 @@ export function Footer({
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                       {link.label}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

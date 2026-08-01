@@ -8,6 +8,7 @@ import { getIcon } from "@fw/constants/icons";
 import { cn } from "@fw/utils/cn";
 import { staggerContainer, staggerItem, viewportOnce } from "@fw/constants/animations";
 import type { FeaturesBlockProps } from "@fw/types";
+import Image from "next/image";
 
 export function FeaturesBlock({ config, ctx }: FeaturesBlockProps) {
   const { theme } = ctx;
@@ -40,25 +41,40 @@ export function FeaturesBlock({ config, ctx }: FeaturesBlockProps) {
               <motion.div
                 key={feature.title}
                 variants={staggerItem}
-                className="bg-white rounded-[var(--fw-radius)] border border-[var(--fw-border)] p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+                className={cn(
+                  "bg-white rounded-[var(--fw-radius)] border border-[var(--fw-border)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden flex flex-col",
+                  !feature.image && "p-6"
+                )}
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundColor: `${theme.colors.accent}15` }}
-                >
-                  <Icon
-                    className="w-6 h-6"
-                    style={{ color: theme.colors.accent }}
-                    aria-hidden="true"
-                  />
-                </div>
+                {feature.image && (
+                  <div className="w-full h-48 overflow-hidden relative">
+                    <Image
+                      src={feature.image.src}
+                      alt={feature.image.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                
+                <div className={cn("flex flex-col flex-1", feature.image && "p-6")}>
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 shrink-0"
+                    style={{ backgroundColor: `${theme.colors.accent}15` }}
+                  >
+                    <Icon
+                      className="w-6 h-6"
+                      style={{ color: theme.colors.accent }}
+                      aria-hidden="true"
+                    />
+                  </div>
 
-                <h3 className="font-heading font-bold text-lg mb-2" style={{ color: theme.colors.primary }}>
-                  {feature.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: theme.colors.muted }}>
-                  {feature.desc}
-                </p>
+                  <h3 className="font-heading font-bold text-lg mb-2" style={{ color: theme.colors.primary }}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: theme.colors.muted }}>
+                    {feature.desc}
+                  </p>
+                </div>
               </motion.div>
             );
           })}

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { getIcon } from "@fw/constants/icons";
 import { fadeUp, staggerContainer, viewportOnce } from "@fw/constants/animations";
 import type { CtaBlockProps } from "@fw/types";
+import Link from "next/link";
 
 export function CtaBlock({ config, ctx }: CtaBlockProps) {
   const { theme } = ctx;
@@ -58,7 +59,7 @@ export function CtaBlock({ config, ctx }: CtaBlockProps) {
           )}
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
+            <Link
               href={config.primary.href}
               target={config.primary.external ? "_blank" : undefined}
               rel={config.primary.external ? "noopener noreferrer" : undefined}
@@ -70,10 +71,10 @@ export function CtaBlock({ config, ctx }: CtaBlockProps) {
             >
               {PrimaryIcon && <PrimaryIcon className="w-5 h-5" aria-hidden="true" />}
               {config.primary.label}
-            </a>
+            </Link>
 
             {config.secondary && (
-              <a
+              <Link
                 href={config.secondary.href}
                 target={config.secondary.external ? "_blank" : undefined}
                 rel={config.secondary.external ? "noopener noreferrer" : undefined}
@@ -81,7 +82,7 @@ export function CtaBlock({ config, ctx }: CtaBlockProps) {
               >
                 {SecondaryIcon && <SecondaryIcon className="w-5 h-5" aria-hidden="true" />}
                 {config.secondary.label}
-              </a>
+              </Link>
             )}
           </motion.div>
         </motion.div>
