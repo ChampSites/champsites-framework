@@ -2,7 +2,7 @@
 // Generates robots.txt from the business config.
 
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@clients/dental-wellness/site.config";
+import { siteConfig } from "@clients/shri-ram/site.config";
 import { resolveConfig } from "@fw/lib/config-resolver";
 
 export default function robots(): MetadataRoute.Robots {

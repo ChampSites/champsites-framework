@@ -2,7 +2,7 @@
 // Dynamic Page Assembler using BlockRegistry.
 // Zero hardcoded components or business logic.
 
-import { siteConfig } from "@clients/dental-wellness/site.config";
+import { siteConfig } from "@clients/shri-ram/site.config";
 import { resolveConfig } from "@fw/lib/config-resolver";
 import { BLOCK_REGISTRY } from "@fw/blocks/registry";
 

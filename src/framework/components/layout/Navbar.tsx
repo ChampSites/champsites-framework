@@ -12,6 +12,7 @@ import { useScrolled } from "@fw/hooks/useScrolled";
 import { cn } from "@fw/utils/cn";
 import { buildTelHref } from "@fw/utils/format";
 import { getIcon } from "@fw/constants/icons";
+import { GoogleTranslateWidget } from "@fw/plugins/GoogleTranslateWidget";
 import type { NavbarProps } from "@fw/types";
 
 export function Navbar({
@@ -108,6 +109,8 @@ export function Navbar({
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
+              <GoogleTranslateWidget isDark={isDark} scrolled={scrolled} />
+              
               {phone && (
                 <a
                   href={buildTelHref(phone)}
@@ -186,6 +189,9 @@ export function Navbar({
                 </motion.a>
               ))}
               <div className="flex flex-col gap-2 pt-2">
+                <div className="flex justify-center py-2">
+                  <GoogleTranslateWidget isDark={isDark} scrolled={scrolled} />
+                </div>
                 {phone && (
                   <a
                     href={buildTelHref(phone)}

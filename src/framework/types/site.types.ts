@@ -277,7 +277,9 @@ export interface SeoConfig {
   twitterHandle?: string;
 }
 
-// ─── Navigation ───────────────────────────────────────────────────────────────
+// ─── i18n & Navigation ───────────────────────────────────────────────────────────────
+
+export type Language = "en" | "hi" | "raj";
 
 export interface NavLink {
   label: string;
@@ -379,6 +381,22 @@ export interface SiteConfig {
 
   // ── Global Plugins & Widgets ──────────────────────────────────────
   plugins?: string[];
+  
+  // ── Internationalization (i18n) ───────────────────────────────────
+  locales?: {
+    [key in Language]?: {
+      tagline?: string;
+      sections?: {
+        hero?: Partial<HeroConfig>;
+        about?: Partial<AboutConfig>;
+        services?: Partial<ServicesConfig>;
+        features?: Partial<FeaturesConfig>;
+      };
+      announcement?: {
+        text: string;
+      };
+    };
+  };
   
   announcement?: {
     isActive: boolean;

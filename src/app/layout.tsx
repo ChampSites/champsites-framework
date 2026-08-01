@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 // ─── Direct Config Import (Framework Architecture Phase 1) ─────────────────
-import { siteConfig } from "@clients/dental-wellness/site.config";
+import { siteConfig } from "@clients/shri-ram/site.config";
 import { resolveConfig } from "@fw/lib/config-resolver";
 import { generateSiteMetadata } from "@fw/lib/metadata";
 import { generateJsonLd, serializeJsonLd } from "@fw/lib/jsonld";
