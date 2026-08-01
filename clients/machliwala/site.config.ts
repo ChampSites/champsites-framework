@@ -31,6 +31,7 @@ export const siteConfig: SiteConfig = {
     { label: "Services", href: "/#services" },
     { label: "Menu", href: "/#menu" },
     { label: "Gallery", href: "/#gallery" },
+    { label: "Reviews", href: "/#testimonials" },
     { label: "Contact", href: "/#contact" }
   ],
   
@@ -46,7 +47,7 @@ export const siteConfig: SiteConfig = {
     external: true
   },
   
-  sectionOrder: ["hero", "about", "services", "menu", "gallery", "contact"],
+  sectionOrder: ["hero", "about", "services", "menu", "gallery", "testimonials", "contact"],
   
   sections: {
     hero: {
@@ -309,6 +310,46 @@ export const siteConfig: SiteConfig = {
         { src: "/clients/machliwala/gallery/img4.png", alt: "Desserts" },
         { src: "/clients/machliwala/gallery/img1.jpg", alt: "Shawaya Mandi Feast" },
         { src: "/clients/machliwala/gallery/img8.jpg", alt: "Mouth-watering Mandi with Grilled Chicken" },
+      ]
+    },
+    testimonials: {
+      headline: "Customer Reviews",
+      items: [
+        {
+          id: "t1",
+          name: "Ankit Kumar",
+          role: "Local Guide",
+          review: "The food here is absolutely delicious! Every dish we tried was bursting with flavor and cooked to perfection. Highly recommend 'Kunafa'. All staff behaviour was too good. A must visit place. ❤️",
+          rating: 5
+        },
+        {
+          id: "t2",
+          name: "Tabish Kamran",
+          role: "Customer",
+          review: "Had a wonderful experience at Machliwala Restaurant. The ambience is soothing, the food quality is excellent, and the hygiene is truly impressive. Special mention to the host for being so polite and welcoming. Definitely worth visiting!",
+          rating: 5
+        },
+        {
+          id: "t3",
+          name: "Keep Watching YT",
+          role: "Local Guide",
+          review: "Food was good. This restaurant is in outer town area that is good thing. It has unique design as well as unique dishes.",
+          rating: 4
+        },
+        {
+          id: "t4",
+          name: "Shuchi Dwivedi",
+          role: "Customer",
+          review: "Highly recommended. The food taste was awesome and the present was even more perfect. There was dish called Mandi that was just delicious 😋",
+          rating: 5
+        },
+        {
+          id: "t5",
+          name: "Aryan",
+          role: "Customer",
+          review: "This restaurant offers an unforgettable dining experience with delicious food that bursts with flavor and freshness. The ambiance is cozy yet stylish, creating the perfect atmosphere to relax and enjoy. Attentive staff make the entire meal seamless and enjoyable—highly recommended!",
+          rating: 5
+        }
       ]
     },
     contact: {

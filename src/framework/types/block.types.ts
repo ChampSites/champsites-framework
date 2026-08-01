@@ -17,6 +17,10 @@ import type {
   ContactConfig,
   MapConfig,
   BlogConfig,
+  StatsConfig,
+  TestimonialsConfig,
+  FaqConfig,
+  TeamConfig,
   CtaButton,
   SocialLinks,
   NavLink,
@@ -62,24 +66,18 @@ export interface GalleryBlockProps {
 }
 
 export interface StatsBlockProps {
-  stats: StatItem[];
+  config: StatsConfig;
   ctx: BlockContext;
 }
 
 export interface TestimonialsBlockProps {
-  testimonials: TestimonialItem[];
+  config: TestimonialsConfig;
   ctx: BlockContext;
-  headline?: string;
-  subheadline?: string;
-  description?: string;
 }
 
 export interface FaqBlockProps {
-  faqs: FaqItem[];
+  config: FaqConfig;
   ctx: BlockContext;
-  headline?: string;
-  subheadline?: string;
-  description?: string;
 }
 
 export interface PricingBlockProps {
@@ -110,10 +108,8 @@ export interface MapBlockProps {
 }
 
 export interface TeamBlockProps {
-  members: TeamMember[];
+  config: TeamConfig;
   ctx: BlockContext;
-  headline?: string;
-  subheadline?: string;
 }
 
 export interface BlogBlockProps {

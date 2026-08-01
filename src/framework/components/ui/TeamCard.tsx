@@ -28,7 +28,7 @@ export function TeamCard({ member, index = 0 }: TeamCardProps) {
       viewport={viewportOnce}
       variants={scaleIn}
       transition={{ delay: (index % 4) * 0.1 }}
-      className="group bg-white rounded-[var(--fw-radius)] border border-[var(--fw-border)] overflow-hidden hover:shadow-lg transition-all duration-300"
+      className="group bg-[var(--fw-bg)] rounded-[var(--fw-radius)] border border-[var(--fw-border)] overflow-hidden hover:shadow-lg transition-all duration-300"
     >
       {/* Avatar / Image */}
       <div className="relative h-56 bg-[var(--fw-surface)] overflow-hidden">

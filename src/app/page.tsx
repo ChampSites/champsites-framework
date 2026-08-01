@@ -43,24 +43,14 @@ export default function HomePage() {
 
           const BlockComponent = blockMeta.component;
           
-          // Determine the config for this specific block
-          const blockConfig = sectionKey === "stats" || sectionKey === "testimonials" || sectionKey === "faq" || sectionKey === "team"
-            ? sections[sectionKey] // Array props
-            : sections[sectionKey]; // Object props
+          const blockConfig = sections[sectionKey];
 
           if (!blockConfig) return null;
 
-          // For array-based blocks, we need to pass them down as the specific prop names
-          // e.g., <StatsBlock stats={config} />, <TestimonialsBlock testimonials={config} />
           const propMap: Record<string, any> = {
             ctx,
+            config: blockConfig,
           };
-
-          if (sectionKey === "stats") propMap.stats = blockConfig;
-          else if (sectionKey === "testimonials") propMap.testimonials = blockConfig;
-          else if (sectionKey === "faq") propMap.faqs = blockConfig;
-          else if (sectionKey === "team") propMap.members = blockConfig;
-          else propMap.config = blockConfig;
 
           // Add defaults for some blocks that rely on headlines from the page level
           if (sectionKey === "contact") {

@@ -9,12 +9,10 @@ import { fadeUp, viewportOnce } from "@fw/constants/animations";
 import type { FaqBlockProps } from "@fw/types";
 
 export function FaqBlock({
-  faqs,
+  config,
   ctx,
-  headline = "Frequently Asked Questions",
-  subheadline = "FAQs",
-  description,
 }: FaqBlockProps) {
+  const { headline = "Frequently Asked Questions", subheadline = "FAQs", description, items } = config;
   return (
     <section
       id="faq"
@@ -37,7 +35,7 @@ export function FaqBlock({
             viewport={viewportOnce}
             variants={fadeUp}
           >
-            <FaqAccordion items={faqs} />
+            <FaqAccordion items={items} />
           </motion.div>
         </div>
       </div>

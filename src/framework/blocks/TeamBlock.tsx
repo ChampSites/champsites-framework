@@ -7,11 +7,10 @@ import { TeamCard } from "@fw/components/ui/TeamCard";
 import type { TeamBlockProps } from "@fw/types";
 
 export function TeamBlock({
-  members,
+  config,
   ctx,
-  headline = "Meet Our Team",
-  subheadline = "Our Experts",
 }: TeamBlockProps) {
+  const { headline = "Meet Our Team", subheadline = "Our Experts", description, items } = config;
   return (
     <section
       id="team"
@@ -27,7 +26,7 @@ export function TeamBlock({
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {members.map((member, i) => (
+          {items.map((member, i) => (
             <TeamCard key={member.id} member={member} index={i} />
           ))}
         </div>

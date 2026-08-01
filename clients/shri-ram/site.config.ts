@@ -67,7 +67,10 @@ export const siteConfig: SiteConfig = {
         { id: "cleaning", title: "Ultrasonic Cleaning", description: "Painless teeth cleaning via ultrasonic machine and cavity filling.", icon: "sparkles", image: {src: "https://images.unsplash.com/photo-1626736985932-c0df2ae07a2e?w=600&auto=format", alt: "Cleaning"} }
       ]
     },
-    team: [
+    team: {
+      headline: "Meet Our Team",
+      subheadline: "Our Experts",
+      items: [
       {
         id: "doc1",
         name: "Dr. K.K. Saini",
@@ -86,7 +89,8 @@ export const siteConfig: SiteConfig = {
         role: "Dental Surgeons",
         image: { src: "https://images.jdmagicbox.com/v2/comp/jaipur/p6/0141px141.x141.170505120517.y9p6/catalogue/shree-ram-diagnostic-and-dental-hospital-macheda-jaipur-dental-hospitals-ihj5wxavvi.jpg", alt: "Doctors Team" }
       }
-    ],
+    ]
+  },
     gallery: {
       headline: "Take a Tour of Our Clinic",
       subheadline: "State of the art diagnostic and dental equipment",
@@ -98,49 +102,53 @@ export const siteConfig: SiteConfig = {
         { src: "/clients/shri-ram/gallery/img5.jpg", alt: "Clinic" }
       ]
     },
-    testimonials: [
-      {
-        id: "t1",
-        name: "himanshu choudhary",
-        source: "google",
-        review: "loved it, everything was nice. staff behavior was good... first thing is RGHS is available even though most hospital are refusing for it and my mother got the treatment without a penny. i was in doubt at some point that they will charge something, some hidden charges but they didn't take even 1 rupee...",
-        rating: 5,
-      },
-      {
-        id: "t2",
-        name: "Mahender Besh",
-        source: "google",
-        review: "Shree Ram dental Hospital is one of the best healthcare centers near 14 Nos. area. The hospital is well-equipped with modern facilities and maintains high standards... Dr. K. K. Saini is an excellent doctor – highly skilled, professional, and very caring towards patients.",
-        rating: 5,
-      },
-      {
-        id: "t3",
-        name: "Priyanka",
-        source: "google",
-        review: "The dentist is highly skilled and caring. Treatment is done with great precision and comfort. The hospital maintains excellent hygiene, uses modern equipment, and ensures a painless experience. I truly appreciate the patience, professionalism, and friendly approach.",
-        rating: 5,
-      },
-      {
-        id: "t4",
-        name: "Anoop Sonkriya",
-        source: "google",
-        review: "I had an excellent experience with the Orthodontics Department. From my very first consultation, the doctors explained every step of the treatment clearly and answered all my questions patiently. The staff was professional, supportive, and always made me feel comfortable.",
-        rating: 5,
-      },
-      {
-        id: "t5",
-        name: "Aryan singh Rao",
-        source: "google",
-        review: "Hospital amenities is decent but staff and doctor nature is very polite. If you facing dental issue i recommend this hospital 🏥",
-        rating: 5,
-      }
-    ],
-    faq: [
-      { q: "Is Shri Ram Hospital RGHS approved?", a: "Yes, we are a fully RGHS and CS & EX approved hospital." },
-      { q: "Do you offer both diagnostic and dental services?", a: "Yes, we provide comprehensive dental treatments and advanced diagnostic facilities under one roof." },
-      { q: "Do I need to book an appointment beforehand?", a: "While walk-ins are welcome, we recommend booking an appointment to avoid waiting times." },
-      { q: "What are your operational hours?", a: "We are open daily from 9:00 AM to 8:00 PM." }
-    ],
+    testimonials: {
+      items: [
+        {
+          id: "t1",
+          name: "himanshu choudhary",
+          source: "google",
+          review: "loved it, everything was nice. staff behavior was good... first thing is RGHS is available even though most hospital are refusing for it and my mother got the treatment without a penny. i was in doubt at some point that they will charge something, some hidden charges but they didn't take even 1 rupee...",
+          rating: 5,
+        },
+        {
+          id: "t2",
+          name: "Mahender Besh",
+          source: "google",
+          review: "Shree Ram dental Hospital is one of the best healthcare centers near 14 Nos. area. The hospital is well-equipped with modern facilities and maintains high standards... Dr. K. K. Saini is an excellent doctor – highly skilled, professional, and very caring towards patients.",
+          rating: 5,
+        },
+        {
+          id: "t3",
+          name: "Priyanka",
+          source: "google",
+          review: "The dentist is highly skilled and caring. Treatment is done with great precision and comfort. The hospital maintains excellent hygiene, uses modern equipment, and ensures a painless experience. I truly appreciate the patience, professionalism, and friendly approach.",
+          rating: 5,
+        },
+        {
+          id: "t4",
+          name: "Anoop Sonkriya",
+          source: "google",
+          review: "I had an excellent experience with the Orthodontics Department. From my very first consultation, the doctors explained every step of the treatment clearly and answered all my questions patiently. The staff was professional, supportive, and always made me feel comfortable.",
+          rating: 5,
+        },
+        {
+          id: "t5",
+          name: "Aryan singh Rao",
+          source: "google",
+          review: "Hospital amenities is decent but staff and doctor nature is very polite. If you facing dental issue i recommend this hospital 🏥",
+          rating: 5,
+        }
+      ]
+    },
+    faq: {
+      items: [
+        { q: "Is Shri Ram Hospital RGHS approved?", a: "Yes, we are a fully RGHS and CS & EX approved hospital." },
+        { q: "Do you offer both diagnostic and dental services?", a: "Yes, we provide comprehensive dental treatments and advanced diagnostic facilities under one roof." },
+        { q: "Do I need to book an appointment beforehand?", a: "While walk-ins are welcome, we recommend booking an appointment to avoid waiting times." },
+        { q: "What are your operational hours?", a: "We are open daily from 9:00 AM to 8:00 PM." }
+      ]
+    },
     contact: {
       headline: "Get in Touch",
       subheadline: "Book your appointment or inquire about our services",

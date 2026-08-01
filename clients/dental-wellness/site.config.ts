@@ -78,29 +78,31 @@ export const siteConfig: SiteConfig = {
       showForm: false,
       showContactInfo: true
     },
-    testimonials: [
-      {
-        id: "t1",
-        name: "Mr. Amit Kumar",
-        source: "google",
-        review: "My RCT and capping experience was outstanding. The team was professional, cooperative, and handled everything with great care. The entire procedure was smooth stress-free. Highly recommend for quality dental care!",
-        rating: 5,
-      },
-      {
-        id: "t2",
-        name: "Monu Kumar",
-        source: "google",
-        review: "My experience at Dental Wellness was amazing! The doctors correctly diagnosed my problem and completed the procedure pain-free. The clinic is exceptionally clean and equipped with modern technology. Highly recommended!",
-        rating: 5,
-      },
-      {
-        id: "t3",
-        name: "Roshni Yadav",
-        source: "google",
-        review: "Dr. Simpi and Dr. Raj Rajeshwar are extremely professional. They provided a detailed explanation of my issues and fixed them with utmost care. I am incredibly happy with the checkup, cleaning, and RCT. Truly top-notch dentists!",
-        rating: 5,
-      }
-    ],
+    testimonials: {
+      items: [
+        {
+          id: "t1",
+          name: "Mr. Amit Kumar",
+          source: "google",
+          review: "My RCT and capping experience was outstanding. The team was professional, cooperative, and handled everything with great care. The entire procedure was smooth stress-free. Highly recommend for quality dental care!",
+          rating: 5,
+        },
+        {
+          id: "t2",
+          name: "Monu Kumar",
+          source: "google",
+          review: "My experience at Dental Wellness was amazing! The doctors correctly diagnosed my problem and completed the procedure pain-free. The clinic is exceptionally clean and equipped with modern technology. Highly recommended!",
+          rating: 5,
+        },
+        {
+          id: "t3",
+          name: "Roshni Yadav",
+          source: "google",
+          review: "Dr. Simpi and Dr. Raj Rajeshwar are extremely professional. They provided a detailed explanation of my issues and fixed them with utmost care. I am incredibly happy with the checkup, cleaning, and RCT. Truly top-notch dentists!",
+          rating: 5,
+        }
+      ]
+    },
     gallery: {
       headline: "Take a Tour of Our Clinic",
       subheadline: "State of the art facilities for your comfort",
@@ -112,20 +114,22 @@ export const siteConfig: SiteConfig = {
         { src: "/clients/dental-wellness/gallery/img7.png", alt: "Gallery Image 5" },
       ]
     },
-    team: [
-      {
-        id: "doc2",
-        name: "Dr. Simpi Rai & Dr. Raj Rajeshwar",
-        role: "Dental Surgeon",
-        image: { src: "/clients/dental-wellness/team/img2.jpg", alt: "Dr. Neha" }
-      },
-      {
-        id: "doc1",
-        name: "Team",
-        role: "Surgeons",
-        image: { src: "/clients/dental-wellness/team/img.jpg", alt: "Dr. Anil" }
-      },
-    ]
+    team: {
+      items: [
+        {
+          id: "doc2",
+          name: "Dr. Simpi Rai & Dr. Raj Rajeshwar",
+          role: "Dental Surgeon",
+          image: { src: "/clients/dental-wellness/team/img2.jpg", alt: "Dr. Neha" }
+        },
+        {
+          id: "doc1",
+          name: "Team",
+          role: "Surgeons",
+          image: { src: "/clients/dental-wellness/team/img.jpg", alt: "Dr. Anil" }
+        },
+      ]
+    }
   },
   plugins: ["whatsapp-chat"],
   announcement: {

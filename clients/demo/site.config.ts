@@ -162,12 +162,14 @@ export const siteConfig: SiteConfig = {
       ],
     },
 
-    stats: [
-      { label: "Students Trained", value: 1000, suffix: "+", icon: "Users" },
-      { label: "Years of Excellence", value: 15, suffix: "+", icon: "Award" },
-      { label: "Branches in Delhi", value: 3, suffix: "", icon: "Star" },
-      { label: "Google Rating", value: 4.9, suffix: "★", icon: "ThumbsUp" },
-    ],
+    stats: {
+      items: [
+        { label: "Students Trained", value: 1000, suffix: "+", icon: "Users" },
+        { label: "Years of Excellence", value: 15, suffix: "+", icon: "Award" },
+        { label: "Branches in Delhi", value: 3, suffix: "", icon: "Star" },
+        { label: "Google Rating", value: 4.9, suffix: "★", icon: "ThumbsUp" },
+      ]
+    },
 
     services: {
       headline: "Our Courses",
@@ -384,97 +386,101 @@ export const siteConfig: SiteConfig = {
       ],
     },
 
-    testimonials: [
-      {
-        name: "Priya Sharma",
-        date: "January 2025",
-        rating: 5,
-        initials: "PS",
-        review:
-          "Suru mam is an incredible teacher! She's patient, energetic, and genuinely cares about every student's progress. My Bollywood has improved so much in just 2 months. The environment here is super welcoming!",
-        tag: "Bollywood",
-      },
-      {
-        name: "Rahul Mehta",
-        date: "March 2025",
-        rating: 5,
-        initials: "RM",
-        review:
-          "Ankit Sir is a beast at Hip Hop! He breaks down complex moves so simply. The vibe at Rudra is unlike any other academy — it feels like a family. Best decision I made.",
-        tag: "Hip Hop",
-      },
-      {
-        name: "Meena Agarwal",
-        date: "December 2024",
-        rating: 5,
-        initials: "MA",
-        review:
-          "Got my entire sangeet choreography done with Kartik Sir. So professional and creative — everyone at the wedding was asking who choreographed it! Highly highly recommend.",
-        tag: "Wedding Choreography",
-      },
-      {
-        name: "Arjun Kapoor",
-        date: "February 2025",
-        rating: 5,
-        initials: "AK",
-        review:
-          "Joined for my son who is 7 years old. The kids batch is amazing — the instructors are so gentle and fun. My son actually WANTS to go every day. That says everything!",
-        tag: "Kids Dance",
-      },
-      {
-        name: "Sneha Gupta",
-        date: "April 2025",
-        rating: 5,
-        initials: "SG",
-        review:
-          "Started Fitness Dance 3 months ago. Lost 6 kgs and gained so much confidence. It doesn't feel like exercise at all — it's pure fun!",
-        tag: "Fitness Dance",
-      },
-      {
-        name: "Vikram Singh",
-        date: "November 2024",
-        rating: 5,
-        initials: "VS",
-        review:
-          "Rudra Dance Academy is the best in East Delhi, period. The quality of teaching, the performance opportunities, the discipline — all world class.",
-        tag: "Contemporary",
-      },
-    ],
+    testimonials: {
+      items: [
+        {
+          name: "Priya Sharma",
+          date: "January 2025",
+          rating: 5,
+          initials: "PS",
+          review:
+            "Suru mam is an incredible teacher! She's patient, energetic, and genuinely cares about every student's progress. My Bollywood has improved so much in just 2 months. The environment here is super welcoming!",
+          tag: "Bollywood",
+        },
+        {
+          name: "Rahul Mehta",
+          date: "March 2025",
+          rating: 5,
+          initials: "RM",
+          review:
+            "Ankit Sir is a beast at Hip Hop! He breaks down complex moves so simply. The vibe at Rudra is unlike any other academy — it feels like a family. Best decision I made.",
+          tag: "Hip Hop",
+        },
+        {
+          name: "Meena Agarwal",
+          date: "December 2024",
+          rating: 5,
+          initials: "MA",
+          review:
+            "Got my entire sangeet choreography done with Kartik Sir. So professional and creative — everyone at the wedding was asking who choreographed it! Highly highly recommend.",
+          tag: "Wedding Choreography",
+        },
+        {
+          name: "Arjun Kapoor",
+          date: "February 2025",
+          rating: 5,
+          initials: "AK",
+          review:
+            "Joined for my son who is 7 years old. The kids batch is amazing — the instructors are so gentle and fun. My son actually WANTS to go every day. That says everything!",
+          tag: "Kids Dance",
+        },
+        {
+          name: "Sneha Gupta",
+          date: "April 2025",
+          rating: 5,
+          initials: "SG",
+          review:
+            "Started Fitness Dance 3 months ago. Lost 6 kgs and gained so much confidence. It doesn't feel like exercise at all — it's pure fun!",
+          tag: "Fitness Dance",
+        },
+        {
+          name: "Vikram Singh",
+          date: "November 2024",
+          rating: 5,
+          initials: "VS",
+          review:
+            "Rudra Dance Academy is the best in East Delhi, period. The quality of teaching, the performance opportunities, the discipline — all world class.",
+          tag: "Contemporary",
+        },
+      ]
+    },
 
-    faq: [
-      {
-        q: "Do I need prior dance experience to join?",
-        a: "Absolutely not! Most of our students start as complete beginners. Our trainers are skilled at teaching from the very basics, and our friendly environment makes learning easy for everyone.",
-      },
-      {
-        q: "What are the batch timings?",
-        a: "We offer multiple batches from 7:00 AM to 9:00 PM, Monday through Sunday. Morning, afternoon, evening, and dedicated weekend batches are all available.",
-      },
-      {
-        q: "How much do classes cost?",
-        a: "Regular batch (3 days/week) is ₹1,300/month. Alternate batch (2 days/week) is ₹1,000/month. Wedding choreography packages are customized. Contact us for current offers.",
-      },
-      {
-        q: "Is there a free trial class?",
-        a: "Yes! We offer one FREE trial class before you commit. Come experience the energy, meet the trainers, and see if it's the right fit for you.",
-      },
-      {
-        q: "What age group is suitable for kids dance?",
-        a: "Our kids batch is open for children 4 years and above. We have age-appropriate curriculum that makes learning dance fun, safe, and enriching.",
-      },
-      {
-        q: "Do you provide performance opportunities?",
-        a: "Yes! We hold annual showcases, inter-academy competitions, and participate in cultural events. Every student gets the chance to perform on stage.",
-      },
-      {
-        q: "Where exactly are your branches located?",
-        a: "We have 3 branches in East Delhi: (1) Laxmi Nagar — D-31, Basement, Near Beni Sweets, Metro Pillar 35. (2) Shakarpur — Near Krishna Mandir. (3) West Guru Angad Nagar — 712 F/1, Mangal Bazar Road.",
-      },
-      {
-        q: "Are there any current offers or discounts?",
-        a: "Yes! We currently offer 15% off on new admissions. Contact us on WhatsApp or call to avail this limited-time offer.",
-      },
-    ],
+    faq: {
+      items: [
+        {
+          q: "Do I need prior dance experience to join?",
+          a: "Absolutely not! Most of our students start as complete beginners. Our trainers are skilled at teaching from the very basics, and our friendly environment makes learning easy for everyone.",
+        },
+        {
+          q: "What are the batch timings?",
+          a: "We offer multiple batches from 7:00 AM to 9:00 PM, Monday through Sunday. Morning, afternoon, evening, and dedicated weekend batches are all available.",
+        },
+        {
+          q: "How much do classes cost?",
+          a: "Regular batch (3 days/week) is ₹1,300/month. Alternate batch (2 days/week) is ₹1,000/month. Wedding choreography packages are customized. Contact us for current offers.",
+        },
+        {
+          q: "Is there a free trial class?",
+          a: "Yes! We offer one FREE trial class before you commit. Come experience the energy, meet the trainers, and see if it's the right fit for you.",
+        },
+        {
+          q: "What age group is suitable for kids dance?",
+          a: "Our kids batch is open for children 4 years and above. We have age-appropriate curriculum that makes learning dance fun, safe, and enriching.",
+        },
+        {
+          q: "Do you provide performance opportunities?",
+          a: "Yes! We hold annual showcases, inter-academy competitions, and participate in cultural events. Every student gets the chance to perform on stage.",
+        },
+        {
+          q: "Where exactly are your branches located?",
+          a: "We have 3 branches in East Delhi: (1) Laxmi Nagar — D-31, Basement, Near Beni Sweets, Metro Pillar 35. (2) Shakarpur — Near Krishna Mandir. (3) West Guru Angad Nagar — 712 F/1, Mangal Bazar Road.",
+        },
+        {
+          q: "Are there any current offers or discounts?",
+          a: "Yes! We currently offer 15% off on new admissions. Contact us on WhatsApp or call to avail this limited-time offer.",
+        },
+      ]
+    },
 
     contact: {
       headline: "Get in Touch",

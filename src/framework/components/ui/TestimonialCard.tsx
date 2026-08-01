@@ -24,7 +24,7 @@ export function TestimonialCard({ item, index = 0 }: TestimonialCardProps) {
       viewport={viewportOnce}
       variants={scaleIn}
       transition={{ delay: (index % 3) * 0.1 }}
-      className="bg-white rounded-[var(--fw-radius)] border border-[var(--fw-border)] p-6 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
+      className="bg-[var(--fw-bg)] rounded-[var(--fw-radius)] border border-[var(--fw-border)] p-6 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300"
     >
       {/* Header: Avatar, Name, Stars */}
       <div className="flex items-start justify-between gap-4 mb-2">

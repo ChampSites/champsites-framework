@@ -245,6 +245,34 @@ export interface BlogConfig {
   cta?: CtaButton;
 }
 
+export interface StatsConfig {
+  headline?: string;
+  subheadline?: string;
+  description?: string;
+  items: StatItem[];
+}
+
+export interface TestimonialsConfig {
+  headline?: string;
+  subheadline?: string;
+  description?: string;
+  items: TestimonialItem[];
+}
+
+export interface FaqConfig {
+  headline?: string;
+  subheadline?: string;
+  description?: string;
+  items: FaqItem[];
+}
+
+export interface TeamConfig {
+  headline?: string;
+  subheadline?: string;
+  description?: string;
+  items: TeamMember[];
+}
+
 export interface MenuItem {
   name: string;
   description?: string;
@@ -377,11 +405,11 @@ export interface SiteConfig {
     services?: ServicesConfig;
     features?: FeaturesConfig;
     gallery?: GalleryConfig;
-    stats?: StatItem[];
-    testimonials?: TestimonialItem[];
-    faq?: FaqItem[];
+    stats?: StatsConfig;
+    testimonials?: TestimonialsConfig;
+    faq?: FaqConfig;
     pricing?: PricingConfig;
-    team?: TeamMember[];
+    team?: TeamConfig;
     cta?: CtaConfig;
     contact?: ContactConfig;
     map?: MapConfig;

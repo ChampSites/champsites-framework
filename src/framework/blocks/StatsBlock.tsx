@@ -7,8 +7,9 @@ import { StatCard } from "@fw/components/ui/StatCard";
 import { fadeUp, viewportOnce } from "@fw/constants/animations";
 import type { StatsBlockProps } from "@fw/types";
 
-export function StatsBlock({ stats, ctx }: StatsBlockProps) {
+export function StatsBlock({ config, ctx }: StatsBlockProps) {
   const { theme } = ctx;
+  const { items } = config;
   const isDark = theme.heroStyle === "dark";
 
   return (
@@ -21,9 +22,9 @@ export function StatsBlock({ stats, ctx }: StatsBlockProps) {
       <div className="max-w-[1200px] mx-auto px-6">
         <div
           className="grid gap-4"
-          style={{ gridTemplateColumns: `repeat(${Math.min(stats.length, 4)}, minmax(0, 1fr))` }}
+          style={{ gridTemplateColumns: `repeat(${Math.min(items.length, 4)}, minmax(0, 1fr))` }}
         >
-          {stats.map((stat, i) => (
+          {items.map((stat, i) => (
             <StatCard key={stat.label} {...stat} light={true} index={i} />
           ))}
         </div>

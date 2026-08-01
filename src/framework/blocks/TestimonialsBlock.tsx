@@ -7,13 +7,11 @@ import { TestimonialCard } from "@fw/components/ui/TestimonialCard";
 import type { TestimonialsBlockProps } from "@fw/types";
 
 export function TestimonialsBlock({
-  testimonials,
+  config,
   ctx,
-  headline = "What Our Clients Say",
-  subheadline = "Testimonials",
-  description,
 }: TestimonialsBlockProps) {
   const { theme } = ctx;
+  const { headline = "What Our Clients Say", subheadline = "Testimonials", description, items } = config;
 
   return (
     <section
@@ -31,7 +29,7 @@ export function TestimonialsBlock({
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
+          {items.map((t, i) => (
             <TestimonialCard key={t.name + i} item={t} index={i} />
           ))}
         </div>
