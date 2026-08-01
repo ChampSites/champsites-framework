@@ -4,8 +4,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-// ─── Direct Config Import (Framework Architecture Phase 1) ─────────────────
-import { siteConfig } from "@clients/shri-ram/site.config";
+// ─── Dynamic Config Import (Environment Variable Approach) ─────────────────
+import { siteConfig } from "@fw/lib/active-client";
 import { resolveConfig } from "@fw/lib/config-resolver";
 import { generateSiteMetadata } from "@fw/lib/metadata";
 import { generateJsonLd, serializeJsonLd } from "@fw/lib/jsonld";

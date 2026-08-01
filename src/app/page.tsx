@@ -2,7 +2,7 @@
 // Dynamic Page Assembler using BlockRegistry.
 // Zero hardcoded components or business logic.
 
-import { siteConfig } from "@clients/shri-ram/site.config";
+import { siteConfig } from "@fw/lib/active-client";
 import { resolveConfig } from "@fw/lib/config-resolver";
 import { BLOCK_REGISTRY } from "@fw/blocks/registry";
 
