@@ -71,7 +71,7 @@ export function ContactBlock({
             whileInView="visible"
             viewport={viewportOnce}
             variants={slideInRight}
-            className="bg-[var(--fw-primary)] rounded-2xl p-8 text-white flex flex-col justify-between"
+            className="bg-[var(--fw-bg)] border border-[var(--fw-border)] rounded-2xl p-8 text-[var(--fw-primary)] flex flex-col justify-between"
           >
             <div className="space-y-6 mb-8">
               <div>
@@ -82,7 +82,7 @@ export function ContactBlock({
                 {address && (
                   <div className="flex items-start gap-4">
                     <MapPin className="w-5 h-5 mt-0.5 shrink-0" style={{ color: theme.colors.accent }} aria-hidden="true" />
-                    <p className="text-white/80 text-sm leading-relaxed">{address}</p>
+                    <p className="text-[var(--fw-muted)] text-sm leading-relaxed">{address}</p>
                   </div>
                 )}
 
@@ -90,8 +90,8 @@ export function ContactBlock({
                   <div className="flex items-center gap-4">
                     <Phone className="w-5 h-5 shrink-0" style={{ color: theme.colors.accent }} aria-hidden="true" />
                     <div className="flex flex-col gap-0.5">
-                      <a href={buildTelHref(phone)} className="text-white/90 text-sm hover:text-white transition-colors">{phone}</a>
-                      {phoneAlt && <a href={buildTelHref(phoneAlt)} className="text-white/60 text-xs hover:text-white transition-colors">{phoneAlt}</a>}
+                      <a href={buildTelHref(phone)} className="text-[var(--fw-muted)] text-sm hover:text-[var(--fw-primary)] transition-colors">{phone}</a>
+                      {phoneAlt && <a href={buildTelHref(phoneAlt)} className="text-[var(--fw-muted)] opacity-80 text-xs hover:text-[var(--fw-primary)] transition-colors">{phoneAlt}</a>}
                     </div>
                   </div>
                 )}
@@ -99,21 +99,21 @@ export function ContactBlock({
                 {email && (
                   <div className="flex items-center gap-4">
                     <Mail className="w-5 h-5 shrink-0" style={{ color: theme.colors.accent }} aria-hidden="true" />
-                    <a href={buildMailHref(email)} className="text-white/90 text-sm hover:text-white transition-colors">{email}</a>
+                    <a href={buildMailHref(email)} className="text-[var(--fw-muted)] text-sm hover:text-[var(--fw-primary)] transition-colors">{email}</a>
                   </div>
                 )}
 
                 {hours && (
                   <div className="flex items-center gap-4">
                     <Clock className="w-5 h-5 shrink-0" style={{ color: theme.colors.accent }} aria-hidden="true" />
-                    <p className="text-white/90 text-sm">{hours}</p>
+                    <p className="text-[var(--fw-muted)] text-sm">{hours}</p>
                   </div>
                 )}
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-3 pt-6 border-t border-white/10">
+            <div className="flex flex-col gap-3 pt-6 border-t border-[var(--fw-border)]">
               {whatsapp && (
                 <a
                   href={buildWhatsAppUrl(whatsapp, `Hi! I'm interested in ${businessName}. Can you share more details?`)}
@@ -130,11 +130,7 @@ export function ContactBlock({
               {phone && (
                 <a
                   href={buildTelHref(phone)}
-                  className="flex items-center justify-center gap-3 font-semibold py-4 rounded-xl border-2 transition-all duration-200 hover:bg-white/5"
-                  style={{
-                    borderColor: theme.colors.surface,
-                    color: theme.colors.surface,
-                  }}
+                  className="flex items-center justify-center gap-3 font-semibold py-4 rounded-xl border-2 transition-all duration-200 hover:bg-[var(--fw-surface)] text-[var(--fw-primary)] border-[var(--fw-border)]"
                 >
                   <Phone className="w-5 h-5" aria-hidden="true" />
                   Call {phone}

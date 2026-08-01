@@ -20,6 +20,7 @@ import { ContactBlock } from "./ContactBlock";
 import { MapBlock } from "./MapBlock";
 import { TeamBlock } from "./TeamBlock";
 import { BlogBlock } from "./BlogBlock";
+import { MenuBlock } from "./MenuBlock";
 
 export interface BlockMetadata {
   id: SectionKey;
@@ -44,4 +45,5 @@ export const BLOCK_REGISTRY: Record<SectionKey, BlockMetadata> = {
   map: { id: "map", component: MapBlock, category: "trust", required: false, supportedBusinessTypes: "all" },
   team: { id: "team", component: TeamBlock, category: "trust", required: false, supportedBusinessTypes: "all" },
   blog: { id: "blog", component: BlogBlock, category: "content", required: false, supportedBusinessTypes: "all" },
+  menu: { id: "menu", component: MenuBlock, category: "content", required: false, supportedBusinessTypes: ["restaurant", "cafe"] },
 };

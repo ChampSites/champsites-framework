@@ -36,9 +36,14 @@ export function HeroBlock({ config, ctx }: HeroBlockProps) {
         </div>
       )}
 
+      {/* Additional dark overlay for better text contrast */}
+      {config.backgroundImage && (
+        <div className="absolute inset-0 z-10 bg-black/70" aria-hidden="true" />
+      )}
+
       {/* Background gradient (or image fallback overlay) */}
       <div
-        className={cn("absolute inset-0 z-10 mix-blend-multiply", config.backgroundImage ? "opacity-80" : "opacity-100")}
+        className={cn("absolute inset-0 z-10 mix-blend-multiply", config.backgroundImage ? "opacity-90" : "opacity-100")}
         style={{ background: theme.primaryGradient }}
         aria-hidden="true"
       />

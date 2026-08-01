@@ -3,10 +3,21 @@
 import { siteConfig as shriRamConfig } from "@clients/shri-ram/site.config";
 import { siteConfig as dentalWellnessConfig } from "@clients/dental-wellness/site.config";
 import { siteConfig as demoConfig } from "@clients/demo/site.config";
+import { siteConfig as machliwalaConfig } from "@clients/machliwala/site.config";
 
-const clientId = process.env.NEXT_PUBLIC_CLIENT || "shri-ram";
+const clientId = process.env.NEXT_PUBLIC_CLIENT;
 
-export const siteConfig = 
-  clientId === "dental-wellness" ? dentalWellnessConfig :
-  clientId === "demo" ? demoConfig :
-  shriRamConfig;
+function getActiveConfig(id: string | undefined) {
+  switch (id) {
+    case 'dental-wellness':
+      return dentalWellnessConfig;
+    case 'shri-ram':
+      return shriRamConfig;
+    case 'machliwala':
+      return machliwalaConfig;
+    default:
+      return demoConfig;
+  }
+}
+
+export const siteConfig = getActiveConfig(clientId);

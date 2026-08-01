@@ -22,19 +22,13 @@ export function Navbar({
   ctaPrimary,
   phone,
   theme,
+  showTranslate,
 }: NavbarProps) {
   const scrolled = useScrolled(20);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isDark = theme.heroStyle === "dark" || theme.heroStyle === "gradient";
+  const isSolid = theme.navStyle === "solid";
   const CtaIcon = ctaPrimary.icon ? getIcon(ctaPrimary.icon) : null;
-
-  // Determine text colors based on scroll + hero style
-  const navTextColor = scrolled
-    ? "text-[var(--fw-primary)]"
-    : isDark
-    ? "text-white/90 hover:text-white"
-    : "text-[var(--fw-primary)]";
 
   return (
     <>
@@ -44,9 +38,11 @@ export function Navbar({
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
           "sticky top-0 z-50 transition-all duration-300 w-full",
-          scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[var(--fw-border)]"
-            : isDark ? "bg-[var(--fw-primary)]" : "bg-transparent"
+          scrolled || isSolid
+            ? "bg-[var(--fw-bg)]/95 backdrop-blur-md shadow-sm border-b border-[var(--fw-border)]"
+            : theme.navStyle === "glass"
+            ? "bg-[var(--fw-bg)]/10 backdrop-blur-md border-b border-[var(--fw-border)]/20"
+            : "bg-transparent"
         )}
         role="banner"
       >
@@ -60,7 +56,7 @@ export function Navbar({
               aria-label={`${businessName} — Home`}
             >
               {logo ? (
-                <div className={cn("w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-200 group-hover:scale-105", scrolled ? "bg-white shadow-sm" : "")}>
+                <div className={cn("w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-200 group-hover:scale-105", scrolled ? "shadow-sm" : "")}>
                   <Image src={logo.src} alt={logo.alt} width={44} height={44} className="w-full h-full object-contain" />
                 </div>
               ) : (
@@ -73,11 +69,11 @@ export function Navbar({
                 </div>
               )}
               <div>
-                <p className={cn("font-heading font-bold text-base leading-tight", scrolled ? "text-[var(--fw-primary)]" : isDark ? "text-white" : "text-[var(--fw-primary)]")}>
+                <p className={cn("font-heading font-bold text-base leading-tight", "text-[var(--fw-primary)]")}>
                   {businessName.split(" ")[0]}
                 </p>
                 {businessName.split(" ").length > 1 && (
-                  <p className={cn("text-[10px] tracking-widest uppercase leading-none", scrolled ? "text-[var(--fw-muted)]" : isDark ? "text-white/60" : "text-[var(--fw-muted)]")}>
+                  <p className={cn("text-[10px] tracking-widest uppercase leading-none", "text-[var(--fw-muted)]")}>
                     {businessName.split(" ").slice(1).join(" ")}
                   </p>
                 )}
@@ -87,49 +83,43 @@ export function Navbar({
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-7" aria-label="Main navigation">
               {nav.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
                   className={cn(
                     "text-sm font-medium transition-colors duration-200 relative group",
-                    scrolled
-                      ? "text-[var(--fw-muted)] hover:text-[var(--fw-primary)]"
-                      : isDark
-                      ? "text-white/70 hover:text-white"
-                      : "text-[var(--fw-muted)] hover:text-[var(--fw-primary)]"
+                    "text-[var(--fw-muted)] hover:text-[var(--fw-primary)]"
                   )}
                 >
                   {link.label}
                   <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[var(--fw-accent)] group-hover:w-full transition-all duration-200" />
-                </a>
+                </Link>
               ))}
             </nav>
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
-              <GoogleTranslateWidget isDark={isDark} scrolled={scrolled} />
+              {showTranslate && (
+                <GoogleTranslateWidget isDark={false} scrolled={scrolled || isSolid} />
+              )}
               
               {phone && (
-                <a
+                <Link
                   href={buildTelHref(phone)}
                   className={cn(
                     "flex items-center gap-2 text-sm transition-colors",
-                    scrolled
-                      ? "text-[var(--fw-muted)] hover:text-[var(--fw-primary)]"
-                      : isDark
-                      ? "text-white/70 hover:text-white"
-                      : "text-[var(--fw-muted)] hover:text-[var(--fw-primary)]"
+                    "text-[var(--fw-muted)] hover:text-[var(--fw-primary)]"
                   )}
                   aria-label={`Call us at ${phone}`}
                 >
                   <Phone className="w-4 h-4" />
                   <span className="hidden lg:block">{phone}</span>
-                </a>
+                </Link>
               )}
 
-              <a
+              <Link
                 href={ctaPrimary.href}
                 target={ctaPrimary.external ? "_blank" : undefined}
                 rel={ctaPrimary.external ? "noopener noreferrer" : undefined}
@@ -137,40 +127,38 @@ export function Navbar({
               >
                 {CtaIcon && <CtaIcon className="w-4 h-4" />}
                 {ctaPrimary.label}
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileOpen((v) => !v)}
               className={cn(
-                "md:hidden w-10 h-10 flex items-center justify-center rounded-lg transition-colors",
-                scrolled ? "hover:bg-[var(--fw-surface)]" : isDark ? "hover:bg-white/10" : "hover:bg-[var(--fw-surface)]"
+                "md:hidden w-10 h-10 flex items-center justify-center rounded-lg transition-colors hover:bg-[var(--fw-surface)]"
               )}
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
             >
               {mobileOpen ? (
-                <X className={cn("w-5 h-5", scrolled || !isDark ? "text-[var(--fw-primary)]" : "text-white")} />
+                <X className="w-5 h-5 text-[var(--fw-primary)]" />
               ) : (
-                <Menu className={cn("w-5 h-5", scrolled || !isDark ? "text-[var(--fw-primary)]" : "text-white")} />
+                <Menu className="w-5 h-5 text-[var(--fw-primary)]" />
               )}
             </button>
           </div>
         </div>
-      </motion.header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            id="mobile-menu"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-[var(--fw-border)] shadow-xl md:hidden"
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              id="mobile-menu"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-0 right-0 z-40 bg-[var(--fw-bg)]/95 backdrop-blur-md border-b border-[var(--fw-border)] shadow-xl md:hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
             role="navigation"
             aria-label="Mobile navigation"
           >
@@ -189,9 +177,11 @@ export function Navbar({
                 </motion.a>
               ))}
               <div className="flex flex-col gap-2 pt-2">
-                <div className="flex justify-center py-2">
-                  <GoogleTranslateWidget isDark={isDark} scrolled={scrolled} />
-                </div>
+                {showTranslate && (
+                  <div className="flex justify-center py-2">
+                    <GoogleTranslateWidget isDark={false} scrolled={true} />
+                  </div>
+                )}
                 {phone && (
                   <a
                     href={buildTelHref(phone)}
@@ -211,10 +201,11 @@ export function Navbar({
                   {ctaPrimary.label}
                 </a>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.header>
     </>
   );
 }

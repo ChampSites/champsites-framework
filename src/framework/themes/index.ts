@@ -11,6 +11,7 @@ import { minimalTheme } from "./minimal";
 import { medicalTheme } from "./medical";
 import { fitnessTheme } from "./fitness";
 import { playfulTheme } from "./playful";
+import { midnightGoldTheme } from "./midnight-gold";
 
 export const THEME_REGISTRY: Record<ThemeName, ThemeTokens> = {
   premium: premiumTheme,
@@ -21,6 +22,7 @@ export const THEME_REGISTRY: Record<ThemeName, ThemeTokens> = {
   medical: medicalTheme,
   fitness: fitnessTheme,
   playful: playfulTheme,
+  "midnight-gold": midnightGoldTheme,
 };
 
 /** Returns theme tokens for a given theme name. Defaults to 'premium'. */
@@ -61,4 +63,5 @@ export function themeToCSS(theme: ThemeTokens, overrides?: { primary?: string; a
 export {
   premiumTheme, luxuryTheme, corporateTheme, creativeTheme,
   minimalTheme, medicalTheme, fitnessTheme, playfulTheme,
+  midnightGoldTheme,
 };

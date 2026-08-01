@@ -47,9 +47,6 @@ export function AboutBlock({ config, ctx }: AboutBlockProps) {
             {config.highlights && config.highlights.length > 0 && (
               <motion.div
                 variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportOnce}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2"
               >
                 {config.highlights.map((h) => {

@@ -245,6 +245,36 @@ export interface BlogConfig {
   cta?: CtaButton;
 }
 
+export interface MenuItem {
+  name: string;
+  description?: string;
+  price?: string | number;
+  priceHalf?: string | number;
+  priceFull?: string | number;
+  priceRegular?: string | number;
+  priceMedium?: string | number;
+  priceLarge?: string | number;
+  badge?: string; // e.g. "Bestseller", "New", "Spicy"
+  isVeg?: boolean;
+  image?: ImageSource;
+}
+
+export interface MenuCategory {
+  title: string;
+  description?: string;
+  items: MenuItem[];
+  // Optional subcategories
+  subcategories?: MenuCategory[];
+}
+
+export interface MenuConfig {
+  headline: string;
+  subheadline?: string;
+  categories: MenuCategory[];
+  /** Message like "All prices are exclusive of taxes" */
+  footerNote?: string;
+}
+
 // ─── Section Keys ─────────────────────────────────────────────────────────────
 
 export type SectionKey =
@@ -261,7 +291,8 @@ export type SectionKey =
   | "contact"
   | "map"
   | "team"
-  | "blog";
+  | "blog"
+  | "menu";
 
 // ─── SEO ─────────────────────────────────────────────────────────────────────
 
@@ -355,6 +386,7 @@ export interface SiteConfig {
     contact?: ContactConfig;
     map?: MapConfig;
     blog?: BlogConfig;
+    menu?: MenuConfig;
   };
 
   // ── Page Assembly ────────────────────────────────────────────────

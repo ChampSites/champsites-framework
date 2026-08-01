@@ -24,7 +24,7 @@ export function ServiceCard({ item, index = 0, ctaLabel, onCtaClick }: ServiceCa
       viewport={viewportOnce}
       variants={scaleIn}
       transition={{ delay: (index % 4) * 0.08 }}
-      className="group bg-white rounded-[var(--fw-radius)] border border-[var(--fw-border)] overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+      className="group bg-[var(--fw-surface)] rounded-[var(--fw-radius)] border border-[var(--fw-border)] overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
     >
       {/* Image */}
       {item.image && (

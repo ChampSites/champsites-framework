@@ -33,6 +33,7 @@ export default function HomePage() {
         ctaPrimary={config.ctaPrimary}
         phone={config.phone}
         theme={theme}
+        showTranslate={config.plugins?.includes("google-translate")}
       />
 
       <main id="main-content" tabIndex={-1}>

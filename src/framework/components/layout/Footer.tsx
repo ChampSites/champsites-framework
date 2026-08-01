@@ -15,7 +15,7 @@ function SocialIcon({ href, label, children }: { href: string; label: string; ch
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="w-10 h-10 bg-white/10 hover:bg-[var(--fw-accent)] rounded-xl flex items-center justify-center transition-colors duration-200 text-white"
+      className="w-10 h-10 bg-[var(--fw-surface)] border border-[var(--fw-border)] hover:bg-[var(--fw-accent)] rounded-xl flex items-center justify-center transition-colors duration-200 text-[var(--fw-primary)] hover:text-white"
     >
       {children}
     </a>
@@ -58,7 +58,7 @@ export function Footer({
   const year = new Date().getFullYear();
 
   return (
-    <footer id="footer" className="bg-[var(--fw-primary)] text-white" role="contentinfo">
+    <footer id="footer" className="bg-[var(--fw-bg)] text-[var(--fw-primary)] border-t border-[var(--fw-border)]" role="contentinfo">
 
       {/* Main Footer Content */}
       <div className="max-w-[1200px] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -76,7 +76,7 @@ export function Footer({
               <h3 className="font-heading text-2xl font-bold">{businessName}</h3>
             </div>
             {(tagline || footerTagline) && (
-              <p className="text-white/60 text-sm leading-relaxed max-w-sm">
+              <p className="text-[var(--fw-muted)] text-sm leading-relaxed max-w-sm">
                 {tagline || footerTagline}
               </p>
             )}
@@ -86,7 +86,7 @@ export function Footer({
             {address && (
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[var(--fw-accent)] mt-0.5 shrink-0" aria-hidden="true" />
-                <p className="text-white/90 text-sm leading-relaxed">{address}</p>
+                <p className="text-[var(--fw-primary)]/90 text-sm leading-relaxed">{address}</p>
               </div>
             )}
 
@@ -94,11 +94,11 @@ export function Footer({
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
                 <div className="flex flex-col gap-0.5">
-                  <a href={buildTelHref(phone)} className="text-white/90 text-sm hover:text-[var(--fw-accent)] transition-colors">
+                  <a href={buildTelHref(phone)} className="text-[var(--fw-primary)]/90 text-sm hover:text-[var(--fw-accent)] transition-colors">
                     {phone}
                   </a>
                   {phoneAlt && (
-                    <a href={buildTelHref(phoneAlt)} className="text-white/60 text-xs hover:text-[var(--fw-accent)] transition-colors">
+                    <a href={buildTelHref(phoneAlt)} className="text-[var(--fw-muted)] text-xs hover:text-[var(--fw-accent)] transition-colors">
                       {phoneAlt}
                     </a>
                   )}
@@ -109,7 +109,7 @@ export function Footer({
             {email && (
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
-                <a href={buildMailHref(email)} className="text-white/90 text-sm hover:text-[var(--fw-accent)] transition-colors">
+                <a href={buildMailHref(email)} className="text-[var(--fw-primary)]/90 text-sm hover:text-[var(--fw-accent)] transition-colors">
                   {email}
                 </a>
               </div>
@@ -118,7 +118,7 @@ export function Footer({
             {hours && (
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-[var(--fw-accent)] shrink-0" aria-hidden="true" />
-                <p className="text-white/90 text-sm">{hours}</p>
+                <p className="text-[var(--fw-primary)]/90 text-sm">{hours}</p>
               </div>
             )}
           </div>
@@ -146,7 +146,7 @@ export function Footer({
         {/* Footer Links Grid */}
         {footerLinks?.map((group) => (
           <div key={group.title}>
-            <h4 className="text-white font-semibold text-sm mb-6 tracking-wide uppercase">
+            <h4 className="text-[var(--fw-primary)] font-semibold text-sm mb-6 tracking-wide uppercase">
               {group.title}
             </h4>
             <ul className="space-y-4">
@@ -154,7 +154,7 @@ export function Footer({
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-white/60 text-sm hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-[var(--fw-muted)] text-sm hover:text-[var(--fw-accent)] transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <ArrowRight
                       className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[var(--fw-accent)]"
@@ -172,16 +172,16 @@ export function Footer({
       </div>
 
       {/* Demo Concept Sub-Footer */}
-      <DemoSubFooter businessName={businessName} backgroundColor="rgba(0,0,0,0.3)" />
+      <DemoSubFooter businessName={businessName} />
 
       {/* Bottom bar */}
-      <div className="border-t border-white/5 bg-black/20">
+      <div className="border-t border-[var(--fw-border)] bg-black/10">
         <div className="max-w-[1200px] mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/30 text-xs text-center">
+          <p className="text-[var(--fw-muted)] text-xs text-center">
             © {year} {businessName}. All rights reserved.
           </p>
           {showWatermark && (
-            <p className="text-white/20 text-xs">
+            <p className="text-[var(--fw-muted)] opacity-50 text-xs">
               Powered by ChampSites Framework
             </p>
           )}

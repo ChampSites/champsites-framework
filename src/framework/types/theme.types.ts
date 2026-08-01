@@ -9,7 +9,8 @@ export type ThemeName =
   | "minimal"
   | "medical"
   | "fitness"
-  | "playful";
+  | "playful"
+  | "midnight-gold";
 
 export interface ThemeColors {
   /** Main brand color — used for backgrounds, primary buttons, navbar */

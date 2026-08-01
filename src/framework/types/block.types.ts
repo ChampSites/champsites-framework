@@ -130,6 +130,7 @@ export interface NavbarProps {
   ctaPrimary: CtaButton;
   phone?: string;
   theme: ThemeTokens;
+  showTranslate?: boolean;
 }
 
 export interface FooterProps {
