@@ -27,7 +27,7 @@ export const midnightGoldTheme: ThemeTokens = {
   radius: "0rem", // Sharp edges for luxury feel
   heroStyle: "dark",
   navStyle: "solid",
-  primaryText: "primary",
+  primaryText: "white",
   primaryGradient: "linear-gradient(135deg, #F8F8F8 0%, #E0E0E0 100%)",
   accentGradient: "linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%)",
 };
