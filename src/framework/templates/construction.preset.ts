@@ -21,11 +21,13 @@ export const constructionPreset: Partial<SiteConfig> = {
       description: "Quality construction, on-time delivery, and transparent pricing. We build structures that stand the test of time.",
       badge: "Licensed & Insured Contractors",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Projects Completed", value: 500, suffix: "+", icon: "Building2" },
       { label: "Years of Experience", value: 20, suffix: "+", icon: "Award" },
       { label: "Happy Clients", value: 300, suffix: "+", icon: "Users" },
       { label: "Expert Workers", value: 150, suffix: "+", icon: "Wrench" },
-    ],
+      ]
+    },
   },
 };

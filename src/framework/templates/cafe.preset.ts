@@ -21,11 +21,13 @@ export const cafePreset: Partial<SiteConfig> = {
       description: "Artisan coffee, cozy vibes, and a menu crafted with love. The café that feels like home.",
       badge: "Freshly Brewed Every Morning",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Cups Served Daily", value: 500, suffix: "+", icon: "Coffee" },
       { label: "Menu Items", value: 40, suffix: "+", icon: "Utensils" },
       { label: "Years Open", value: 5, suffix: "+", icon: "Award" },
       { label: "Rating", value: 4.8, suffix: "★", icon: "Star" },
-    ],
+      ]
+    },
   },
 };

@@ -23,11 +23,13 @@ export const ngoPreset: Partial<SiteConfig> = {
       description: "Empowering communities through education, healthcare, and opportunity. Join us in building a better world.",
       badge: "Making a Difference Since 2010",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Lives Impacted", value: 50000, suffix: "+", icon: "Heart" },
       { label: "Projects Completed", value: 200, suffix: "+", icon: "Trophy" },
       { label: "Volunteers", value: 1000, suffix: "+", icon: "Users" },
       { label: "Cities Reached", value: 50, suffix: "+", icon: "Globe" },
-    ],
+      ]
+    },
   },
 };

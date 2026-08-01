@@ -22,11 +22,13 @@ export const coachingPreset: Partial<SiteConfig> = {
       description: "Proven frameworks, personalized mentoring, and a community of high-achievers. Your transformation starts here.",
       badge: "Trusted by 2,000+ Students",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Students Coached", value: 2000, suffix: "+", icon: "Users" },
       { label: "Success Stories", value: 800, suffix: "+", icon: "Trophy" },
       { label: "Programs Available", value: 12, suffix: "", icon: "BookOpen" },
       { label: "Years Coaching", value: 8, suffix: "+", icon: "Award" },
-    ],
+      ]
+    },
   },
 };

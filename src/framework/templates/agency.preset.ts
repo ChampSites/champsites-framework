@@ -22,11 +22,13 @@ export const agencyPreset: Partial<SiteConfig> = {
       description: "Strategy. Design. Development. Marketing. We're the creative partner that turns your vision into measurable results.",
       badge: "Award-Winning Digital Agency",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Projects Delivered", value: 250, suffix: "+", icon: "Rocket" },
       { label: "Happy Clients", value: 120, suffix: "+", icon: "Users" },
       { label: "Years in Business", value: 8, suffix: "+", icon: "Award" },
       { label: "Team Members", value: 30, suffix: "+", icon: "Sparkles" },
-    ],
+      ]
+    },
   },
 };

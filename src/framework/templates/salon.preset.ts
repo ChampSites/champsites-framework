@@ -22,11 +22,13 @@ export const salonPreset: Partial<SiteConfig> = {
       description: "Premium beauty services by expert stylists in a luxurious, relaxing environment. You deserve the best.",
       badge: "Award-Winning Beauty Studio",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Happy Clients", value: 5000, suffix: "+", icon: "Users" },
       { label: "Expert Stylists", value: 12, suffix: "", icon: "Scissors" },
       { label: "Services Offered", value: 30, suffix: "+", icon: "Star" },
       { label: "Years of Excellence", value: 8, suffix: "+", icon: "Award" },
-    ],
+      ]
+    },
   },
 };

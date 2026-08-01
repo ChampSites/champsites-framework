@@ -22,11 +22,13 @@ export const hospitalPreset: Partial<SiteConfig> = {
       description: "Multi-specialty hospital equipped with cutting-edge technology and dedicated medical professionals available 24/7.",
       badge: "24/7 Emergency Services Available",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Beds Available", value: 500, suffix: "+", icon: "Activity" },
       { label: "Specialist Doctors", value: 100, suffix: "+", icon: "Stethoscope" },
       { label: "Departments", value: 25, suffix: "+", icon: "Building2" },
       { label: "Patients Annually", value: 100000, suffix: "+", icon: "Users" },
-    ],
+      ]
+    },
   },
 };

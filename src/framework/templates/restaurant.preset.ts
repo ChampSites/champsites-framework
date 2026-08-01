@@ -22,11 +22,13 @@ export const restaurantPreset: Partial<SiteConfig> = {
       description: "Fresh ingredients, authentic recipes, and a warm ambiance. Every meal is a celebration.",
       badge: "Now Open for Reservations",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Happy Diners", value: 50000, suffix: "+", icon: "Users" },
       { label: "Menu Items", value: 80, suffix: "+", icon: "Utensils" },
       { label: "Years of Service", value: 12, suffix: "+", icon: "Award" },
       { label: "Rating", value: 4.7, suffix: "★", icon: "Star" },
-    ],
+      ]
+    },
   },
 };

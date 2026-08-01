@@ -21,11 +21,13 @@ export const portfolioPreset: Partial<SiteConfig> = {
       description: "Full-stack developer with a passion for clean code and beautiful interfaces. Available for freelance projects.",
       badge: "Open to Work",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Projects Built", value: 60, suffix: "+", icon: "Rocket" },
       { label: "Happy Clients", value: 40, suffix: "+", icon: "Users" },
       { label: "Years Experience", value: 6, suffix: "+", icon: "Award" },
       { label: "Technologies", value: 20, suffix: "+", icon: "Code" },
-    ],
+      ]
+    },
   },
 };

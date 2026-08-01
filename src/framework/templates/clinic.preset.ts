@@ -22,11 +22,13 @@ export const clinicPreset: Partial<SiteConfig> = {
       description: "Expert doctors, advanced diagnostics, and compassionate care — all under one roof.",
       badge: "Trusted by Thousands of Families",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Patients Treated", value: 25000, suffix: "+", icon: "Users" },
       { label: "Expert Doctors", value: 20, suffix: "+", icon: "Stethoscope" },
       { label: "Specializations", value: 15, suffix: "+", icon: "BriefcaseMedical" },
       { label: "Years of Service", value: 10, suffix: "+", icon: "Award" },
-    ],
+      ]
+    },
   },
 };

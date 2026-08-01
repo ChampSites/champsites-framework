@@ -22,11 +22,13 @@ export const academyPreset: Partial<SiteConfig> = {
       description: "World-class training in a welcoming environment. Join hundreds of students who've found their rhythm with us.",
       badge: "Join Our Community",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Students Trained", value: 500, suffix: "+", icon: "Users" },
       { label: "Years of Experience", value: 10, suffix: "+", icon: "Award" },
       { label: "Courses Offered", value: 8, suffix: "", icon: "Star" },
       { label: "Rating", value: 4.8, suffix: "★", icon: "ThumbsUp" },
-    ],
+      ]
+    },
   },
 };

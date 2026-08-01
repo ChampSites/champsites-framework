@@ -22,11 +22,13 @@ export const realEstatePreset: Partial<SiteConfig> = {
       description: "Premium properties in prime locations. Expert guidance from listing to keys-in-hand.",
       badge: "Trusted Real Estate Experts",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Properties Sold", value: 1200, suffix: "+", icon: "Home" },
       { label: "Happy Families", value: 900, suffix: "+", icon: "Users" },
       { label: "Years in Business", value: 15, suffix: "+", icon: "Award" },
       { label: "Cities Covered", value: 5, suffix: "", icon: "MapPin" },
-    ],
+      ]
+    },
   },
 };

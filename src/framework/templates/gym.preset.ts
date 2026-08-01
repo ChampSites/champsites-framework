@@ -22,11 +22,13 @@ export const gymPreset: Partial<SiteConfig> = {
       description: "State-of-the-art equipment. Expert coaches. A community that pushes you further every single day.",
       badge: "Start Your Transformation Today",
     },
-    stats: [
+    stats: {
+      items: [
       { label: "Active Members", value: 1200, suffix: "+", icon: "Users" },
       { label: "Expert Coaches", value: 15, suffix: "", icon: "Trophy" },
       { label: "Workout Programs", value: 20, suffix: "+", icon: "Dumbbell" },
       { label: "Years Open", value: 8, suffix: "+", icon: "Award" },
-    ],
+      ]
+    },
   },
 };
