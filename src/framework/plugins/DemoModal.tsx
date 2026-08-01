@@ -63,16 +63,16 @@ export function DemoModal({ businessName }: { businessName: string }) {
                 </p>
               </div>
 
-              <div className={cn('mt-8', 'pt-6', 'border-t', 'border-gray-100', 'flex', 'gap-3')}>
+              <div className={cn('mt-8', 'pt-6', 'border-t', 'border-gray-100', 'flex', 'flex-col', 'sm:flex-row', 'gap-3')}>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className={cn('flex-1', 'cursor-pointer', 'bg-gray-600', 'hover:bg-gray-700', 'text-white', 'font-medium', 'py-2.5', 'rounded-lg', 'transition-colors')}
+                  className={cn('w-full', 'sm:flex-1', 'cursor-pointer', 'bg-gray-600', 'hover:bg-gray-700', 'text-white', 'font-medium', 'py-2.5', 'rounded-lg', 'transition-colors')}
                 >
                   Close
                 </button>
                 <a
                   href="mailto:champcodes404@gmail.com"
-                  className={cn('flex-1', 'flex', 'items-center', 'justify-center', 'gap-2', 'bg-red-600', 'hover:bg-red-700', 'text-white', 'font-medium', 'py-2.5', 'rounded-lg', 'transition-colors')}
+                  className={cn('w-full', 'sm:flex-1', 'flex', 'items-center', 'justify-center', 'gap-2', 'bg-red-600', 'hover:bg-red-700', 'text-white', 'font-medium', 'py-2.5', 'rounded-lg', 'transition-colors')}
                 >
                   Contact Developer <ExternalLink className={cn('w-4', 'h-4')} />
                 </a>
